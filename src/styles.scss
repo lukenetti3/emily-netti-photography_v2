@@ -1,0 +1,245 @@
+$grey-text: #585858;
+$grey-background: #f6f6f6;
+$light-green: #ced3d1;
+$dark-green: #9ca7a1;
+$header-size: 2.6em;
+
+body {
+    margin: 0;
+}
+
+.main-margin {
+    margin: 0 15em;
+}
+
+h1 {
+    font-family: cormorant garamond;
+    font-weight: 600;
+    font-size: $header-size;
+    color: $grey-text;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+p {
+    font-family: montserrat;
+    line-height: 1.5em;
+    color: $grey-text;
+    letter-spacing: 1px;
+}
+
+.btn-text {
+    text-transform: uppercase;
+    font-family: cormorant garamond;
+    font-size: 1em;
+    text-decoration: none;
+    color: white; 
+    border: none;  
+}
+
+h2 {
+    text-transform: uppercase;
+    font-family: cormorant garamond;
+    font-size: 1em;
+    color: $grey-text;
+}
+
+.arrow {
+    font-size: 2em;
+    color: white;
+    vertical-align: -7px;
+    padding-left: 1em;  
+}
+
+.arrow-dark {
+    font-size: 2em;
+    color: $grey-text;
+    vertical-align: -7px;
+    padding-left: 1em;  
+}
+
+.primary-btn {
+    padding: 1.9em 1.7em;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-family: cormorant garamond;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+
+// Header ------------------------------------------------------------------------
+nav {
+    ul {
+        display: flex;
+        justify-content: center;
+    }
+    li {
+        list-style: none;
+        padding: 1em 1.4em;
+    }
+    a {
+        text-decoration: none;
+        color: $grey-text;
+        text-transform: uppercase;
+        font-size: 1em;
+    }
+    .hamburger {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+hr {
+    width: 100vw;
+    border: 0.5px solid $light-green;
+}
+
+// Home Page ------------------------------------------------------------------------
+.hero-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-auto-rows: 1fr;
+
+    .hero-text {
+        padding: 1em 1em;
+        grid-column-start: 1;
+        grid-row-start: 1;
+        max-width: 390px;
+    }
+    
+    .hero-bioBox { 
+        grid-column-start: 1;
+        grid-row-start: 2;
+        align-self: end;
+        background-color: $grey-background;
+        .flex {
+            display: flex;
+            padding: 2em;
+            .bioBox-text {
+                padding: 0 1.5em;
+            }
+        }
+    }
+
+    .emily-thumbnail {
+        height: 150px;
+        width: 150px;
+        background-image: url('images/emilyThumbnail.jpg');
+        background-repeat: none;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .hero-img {
+        grid-row: span 2;
+        background-image: url('images/heroCouple.jpg');
+        background-repeat: none;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .bioBox-link {
+        display: flex;
+        padding: 0 2em;
+        align-items: center;
+        justify-content: space-between;
+        height: 5.5em;
+        background-color: $dark-green;
+    }
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    padding: 5em;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-auto-rows: 1fr;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+.img-overlay {
+    background-color: white;
+    height: 150px;
+    opacity: 0.8;
+    position: relative;
+    top: 400px;
+    display: flex;
+    align-items: center;
+    padding: 0 2em;
+}
+
+.img-parallax {
+    background-size: cover;
+    background-position: center;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-auto-rows: 1fr;
+}
+
+.testimonial-img {
+    background-image: url('images/pastor.jpg');
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    left: 40px;
+}
+
+.testimonial-block {
+    background-color: white;
+    position: relative;
+    top: 220px;
+    right: 40px;
+    box-shadow: 0 3px 40px 0 rgba(0, 0, 0, 0.05);
+    padding: 3em;
+}
+
+// Media Queries ---------------------------------------------------------
+// Really Large breakpoint
+@media (max-width: 1480px) {
+    .testimonial-img {
+        left: 0;
+    }
+    .testimonial-block {
+        top: 0;
+        right: 0;
+    }
+}
+
+// Large breakpoint 1
+@media (max-width: 1280px) {
+    .main-margin {
+        margin: 0;
+    }
+}
+
+// Tablet 
+@media (max-width: 991px) {
+    .hero-section {
+        grid-template-rows: 0.5fr 1fr 1fr;
+        .hero-img {
+            grid-row: span 1;
+        }
+    } 
+    .testimonial-block {
+        grid-row: 1;
+        top: 0;
+        margin: 0 5px;
+        right: 0;
+    }
+}
+
+// Mobile portrait
+@media (max-width: 478px) {
+
+}
