@@ -10,7 +10,7 @@ import Brides from "../images/parallaxBrides.jpg"
 import { Parallax } from "react-parallax"
 
 const Home = () => (
-  <div>
+  <main>
     <section className="hero-section main-margin">
       <div className="hero-text">
         <h1>Emily Netti Photography</h1>
@@ -96,7 +96,10 @@ const Home = () => (
       </Parallax>
     </section>
 
-    <section style={{ marginTop: "150px", marginBottom: "350px" }} className="main-margin">
+    <section
+      style={{ marginTop: "150px", marginBottom: "350px" }}
+      className="main-margin"
+    >
       <div className="testimonial-grid">
         <div className="testimonial-img"></div>
         <div className="testimonial-block">
@@ -113,7 +116,8 @@ const Home = () => (
         </div>
       </div>
     </section>
-  </div>
+   
+  </main>
 )
 
 export default Home

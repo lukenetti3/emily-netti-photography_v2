@@ -85,8 +85,14 @@ nav {
         font-size: 1em;
     }
     .hamburger {
-        display: flex;
-        justify-content: flex-end;
+        display: none;
+        margin: 0;
+        cursor: pointer;
+    }
+    .dropdown {
+        li {
+            display: none;
+        }   
     }
 }
 
@@ -236,6 +242,29 @@ hr {
         top: 0;
         margin: 0 5px;
         right: 0;
+    }
+    nav {
+        .hamburger {
+            display: block;
+            padding: 0 1.5em;
+          }
+        ul {
+            justify-content: flex-end;
+        }
+        li {
+            display: none;
+        }
+        .dropdown {
+            li {
+                display: block;
+                margin-right: 0;
+                padding: 1em 0 1em 1em;
+                width: calc(100vw - 1rem);
+                &:hover {
+                    color: $dark-green;
+                }
+            }
+        }
     }
 }
 
