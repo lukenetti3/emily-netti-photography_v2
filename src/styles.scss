@@ -26,6 +26,10 @@ h2 {
     margin-top: 0;
 }
 
+h3 {
+    font-size: 1.5rem;
+}
+
 p {
     font-family: montserrat;
     line-height: 1.5rem;
@@ -34,8 +38,10 @@ p {
 }
 
 a {
+    display: inline-block;
     color: $grey-text;
     text-decoration: none;
+    margin-top: 0;
 }
 
 .btn {
@@ -469,20 +475,84 @@ nav {
 }
 
 .about-grid-1 {
-    height: 300px;
-    max-width: 500px;
+    height: 400px;
+    max-width: 25%;
     object-fit: cover;
 }
 
 .about-grid-2 {
     height: 500px;
-    max-width: 600px;
+    max-width: 50%;
     object-fit: cover;
 }
 
 .about-grid-3 {
-    height: 300px;
-    max-width: 500px;
+    height: 400px;
+    max-width: 25%;
     object-fit: cover;
     align-self: flex-end;
+}
+
+@media (max-width: 990px) {
+    .about-img-grid {
+        justify-content: center;
+    }
+    .about-grid-1 {
+        display: none;
+    }
+    .about-grid-2 {
+        max-width: 97%;
+    }
+    .about-grid-3 {
+        display: none;
+    }
+}
+
+// Story Section
+.my-story-header {
+    max-width: 30%;
+}
+
+.my-story-p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-story-col {
+    width: 45%;
+}
+
+@media (max-width: 870px) {
+    .about-p {
+        width: 95%;
+        margin: 0 auto;
+    }
+    .my-story-header {
+        max-width: 60%;
+    }
+    .my-story-p {
+        flex-direction: column;
+        align-items: center;
+    }
+    .my-story-col {
+        width: 100%;
+    }
+}
+
+.my-story-col p {
+    line-height: 1.7;
+    margin-top: 20px;
+}
+
+.custom-bg {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+}
+
+@media (max-width: 750px) {
+    .right-parallax {
+        left: 10% !important;
+    }
 }
