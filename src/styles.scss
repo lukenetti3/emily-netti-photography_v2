@@ -2,45 +2,57 @@ $grey-text: #585858;
 $grey-background: #f6f6f6;
 $light-green: #ced3d1;
 $dark-green: #9ca7a1;
-$header-size: 2.6em;
 
 body {
     margin: 0;
+    color: $grey-text;
 }
 
-.main-margin {
-    margin: 0 15em;
+// ================================
+// Typography
+// ================================
+h1, h2, h3 {
+    font-family: cormorant garamond;
+    font-weight: 600;
+    margin-top: 0;
 }
 
 h1 {
-    font-family: cormorant garamond;
-    font-weight: 600;
-    font-size: $header-size;
-    color: $grey-text;
-    letter-spacing: 1px;
-    margin: 0;
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2.1rem;
+    margin-top: 0;
 }
 
 p {
     font-family: montserrat;
-    line-height: 1.5em;
+    line-height: 1.5rem;
+    margin: 0;
     color: $grey-text;
-    letter-spacing: 1px;
 }
 
-.btn-text {
-    text-transform: uppercase;
-    font-family: cormorant garamond;
-    font-size: 1em;
+a {
+    color: $grey-text;
     text-decoration: none;
-    color: white; 
-    border: none;  
 }
 
-h2 {
+.btn {
+    text-decoration: none;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    font-family: cormorant garamond;
-    font-size: 1em;
+    letter-spacing: 1px;
+    padding: 1.3rem 2rem;
+}
+
+.btn-bg-green {
+    background: $dark-green;
+    color: white;
+}
+
+.btn-bg-white {
+    background: white;
     color: $grey-text;
 }
 
@@ -58,217 +70,419 @@ h2 {
     padding-left: 1em;  
 }
 
-.primary-btn {
-    padding: 1.9em 1.7em;
-    background-color: transparent;
-    text-transform: uppercase;
-    font-family: cormorant garamond;
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-decoration: none;
+// =======================================================
+// Utilities
+// =======================================================
+.t1-pad {
+    padding-top: 3rem;
 }
 
-// Header ------------------------------------------------------------------------
+.t2-pad {
+    padding-top: 6rem;
+}
+
+.r2-pad {
+    padding-right: 6rem;
+}
+
+.x3-pad {
+    padding: 3rem;
+}
+
+.section-padding {
+    padding-top: 6rem;
+}
+
+@media (max-width: 1100px) {
+    .t2-pad {
+        padding-top: 1rem;
+    }
+    .r2-pad {
+        padding-right: 0;
+    }
+}
+
+// =======================================================
+// Navigation
+// =======================================================
 nav {
-    ul {
-        display: flex;
-        justify-content: center;
-    }
-    li {
-        list-style: none;
-        padding: 1em 1.4em;
-    }
-    a {
-        text-decoration: none;
-        color: $grey-text;
-        text-transform: uppercase;
-        font-size: 1em;
-    }
-    .hamburger {
-        display: none;
-        margin: 0;
-        cursor: pointer;
-    }
-    .dropdown {
-        li {
-            display: none;
-        }   
-    }
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid $dark-green;
+    background-color: white;
+    z-index: 99;
 }
 
-hr {
-    width: 100vw;
-    border: 0.5px solid $light-green;
-}
-
-// Home Page ------------------------------------------------------------------------
-.hero-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    grid-auto-rows: 1fr;
-
-    .hero-text {
-        padding: 1em 1em;
-        grid-column-start: 1;
-        grid-row-start: 1;
-        max-width: 390px;
-    }
-    
-    .hero-bioBox { 
-        grid-column-start: 1;
-        grid-row-start: 2;
-        align-self: end;
-        background-color: $grey-background;
-        .flex {
-            display: flex;
-            padding: 2em;
-            .bioBox-text {
-                padding: 0 1.5em;
-            }
-        }
-    }
-
-    .emily-thumbnail {
-        height: 150px;
-        width: 150px;
-        background-image: url('images/emilyThumbnail.jpg');
-        background-repeat: none;
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .hero-img {
-        grid-row: span 2;
-        background-image: url('images/heroCouple.jpg');
-        background-repeat: none;
-        background-size: cover;
-        background-position: center;
-    }
-
-    .bioBox-link {
-        display: flex;
-        padding: 0 2em;
-        align-items: center;
-        justify-content: space-between;
-        height: 5.5em;
-        background-color: $dark-green;
-    }
-}
-
-.banner {
+.nav-list {
     display: flex;
     justify-content: center;
-    padding: 5em;
+    list-style: none;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 1rem 0.7rem;
+    text-decoration: none;
+    font-weight: 600px;
+}
+
+.hamburger {
+    display: none;
+    padding: 0 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .nav-list {
+        justify-content: flex-end;
+    }
+    .nav-item {
+        display: none;
+    }
+    .hamburger {
+        display: inline-block;
+    }
+}
+
+.nav-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: cormorant garamond;
+    color: $grey-text;
+    font-weight: 600;
+}
+
+.nav-list-mobile {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: white;
+    list-style: none;
+    width: calc(100% - 40px);
+    li {
+        margin: 20px 0;
+    }
+}
+
+.link-mobile {
+    font-family: Montserrat;
+    font-weight: 700;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: $dark-green;
+}
+
+// =======================================================
+// Footer
+// =======================================================
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 0;
+    margin-top: 50px;
+    border-top: 1px solid $light-green;
+}
+
+@media (max-width: 750px) {
+    .footer-flex {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+    }
+}
+
+.footer-list {
+    padding-left: 0;
+}
+
+.col-3 {
+    width: 33.3%;
     text-align: center;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    grid-auto-rows: 1fr;
-    row-gap: 20px;
-    column-gap: 20px;
+@media (max-width: 750px) {
+    .col-3 {
+        padding-top: 40px;
+        width: 70%;
+    }
 }
 
-.img-overlay {
+.footer-items {
+    font-family: cormorant garamond;
+    list-style: none;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: $grey-text;
+    padding: 0.7rem 0;
+}
+
+.footer-text {
+    color: $grey-text;
+    font-family: cormorant garamond;
+    font-size: 1.1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+
+// =======================================================
+// Layout
+// =======================================================
+.container {
+    width: 98%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.flex-1 {
+    display: flex;
+}
+
+.flex-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.flex-3 {
+    background: $grey-background;
+}
+
+@media (max-width: 1100px) {
+    .flex-1 {
+        flex-direction: column;
+    }
+    .t2-pad {
+        padding-top: 1rem;
+    }
+}
+
+.col {
+    width: 50%;
+}
+
+@media (max-width: 1100px) {
+    .col {
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+// Hero Section
+.first-section {
+    padding-top: 3rem;
+}
+
+@media (max-width: 700px) {
+    .hero {
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+}
+
+.Img {
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnail {
+    width: 90%;
+}
+
+.row-special {
+    display: flex;
+    justify-content: space-between;
+    background: $dark-green;
+    padding: 2rem;
+}
+
+.white-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+
+// Gallery Section
+.banner {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.sub-heading {
+    color: $dark-green;
+    text-transform: uppercase;
+}
+
+.gallery-flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1100px) {
+    .gallery-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.gallery-card {
+    width: 49.5%;
+}
+
+@media (max-width: 1100px) {
+    .gallery-card {
+        width: 98%;
+    }
+}
+
+.gallery-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+
+}
+
+.gallery-img-overlay {
     background-color: white;
     height: 150px;
     opacity: 0.8;
     position: relative;
-    top: 400px;
+    bottom: 200px;
+    margin-bottom: -140px;
     display: flex;
     align-items: center;
     padding: 0 2em;
 }
 
-.img-parallax {
-    background-size: cover;
-    background-position: center;
+// Testimonials
+.testimonial-col {
+    width: 50%;
 }
 
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    grid-auto-rows: 1fr;
-}
-
-.testimonial-img {
-    background-image: url('images/pastor.jpg');
-    background-repeat: none;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    left: 40px;
+@media (max-width: 991px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+    .testimonial-col {
+        width: 100%;
+    }
 }
 
 .testimonial-block {
     background-color: white;
     position: relative;
-    top: 220px;
-    right: 40px;
+    top: 210px;
+    right: 70px;
     box-shadow: 0 3px 40px 0 rgba(0, 0, 0, 0.05);
-    padding: 3em;
+    width: 100%;
+    height: 75%;
 }
 
-// Media Queries ---------------------------------------------------------
-// Really Large breakpoint
-@media (max-width: 1480px) {
-    .testimonial-img {
-        left: 0;
-    }
+.testimonial-img {
+    height: 100%;
+}
+
+@media (max-width: 1100px) {
     .testimonial-block {
         top: 0;
         right: 0;
     }
 }
 
-// Large breakpoint 1
-@media (max-width: 1280px) {
-    .main-margin {
-        margin: 0;
+// Contact Banner
+.banner-green {
+    background: $light-green;
+    margin-top: 200px;
+}
+
+@media (max-width: 1100px) {
+    .banner-green {
+        margin-top: 1.5rem;
     }
 }
 
-// Tablet 
-@media (max-width: 991px) {
-    .hero-section {
-        grid-template-rows: 0.5fr 1fr 1fr;
-        .hero-img {
-            grid-row: span 1;
-        }
-    } 
-    .testimonial-block {
-        grid-row: 1;
-        top: 0;
-        margin: 0 5px;
-        right: 0;
-    }
-    nav {
-        .hamburger {
-            display: block;
-            padding: 0 1.5em;
-          }
-        ul {
-            justify-content: flex-end;
-        }
-        li {
-            display: none;
-        }
-        .dropdown {
-            li {
-                display: block;
-                margin-right: 0;
-                padding: 1em 0 1em 1em;
-                width: calc(100vw - 1rem);
-                &:hover {
-                    color: $dark-green;
-                }
-            }
-        }
+// ==============================================================
+// Portfolio Page
+// ==============================================================
+.portfolio-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+}
+
+.gallery-tall {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+.gallery-tall-overlay {
+    background-color: $light-green;
+    height: 150px;
+    position: relative;
+    bottom: 20px;
+    margin-bottom: -20px;
+    display: flex;
+    align-items: center;
+    padding: 0 2em;
+}
+
+// ==============================================================
+// About Page
+// ==============================================================
+.about-heading {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.about-heading p {
+    margin: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .about-heading p {
+        padding: 0 1rem;
     }
 }
 
-// Mobile portrait
-@media (max-width: 478px) {
+.about-img-grid {
+    display: flex;
+    justify-content: space-between;
+}
 
+.about-grid-1 {
+    height: 300px;
+    max-width: 500px;
+    object-fit: cover;
+}
+
+.about-grid-2 {
+    height: 500px;
+    max-width: 600px;
+    object-fit: cover;
+}
+
+.about-grid-3 {
+    height: 300px;
+    max-width: 500px;
+    object-fit: cover;
+    align-self: flex-end;
 }

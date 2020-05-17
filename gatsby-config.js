@@ -13,7 +13,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `cormorant garamond\:600`,
+          `cormorant garamond\:300,600`,
           `montserrat` // you can also specify font weights and styles
         ],
         display: 'swap'
