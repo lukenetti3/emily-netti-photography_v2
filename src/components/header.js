@@ -18,10 +18,10 @@ function Header() {
           <Link to="/about/" className="nav-link link-mobile">About Emily</Link>
         </li>
         <li className="nav-item-mobile">
-          <Link className="nav-link link-mobile">Investment & FAQ</Link>
+          <Link to="/investment/" className="nav-link link-mobile">Investment & FAQ</Link>
         </li>
         <li className="nav-item-mobile">
-          <Link className="nav-link link-mobile">Contact</Link>
+          <Link to="/contact/" className="nav-link link-mobile">Contact</Link>
         </li>
       </ul>
     )
@@ -41,10 +41,10 @@ function Header() {
             <Link to="/about/" className="nav-link">About Emily</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link">Investment & FAQ</Link>
+            <Link to="/investment/" className="nav-link">Investment & FAQ</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link">Contact</Link>
+            <Link to="/contact/" className="nav-link">Contact</Link>
           </li>
           <RiMenu5Line
             className="hamburger"

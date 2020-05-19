@@ -121,9 +121,40 @@ function About() {
           strength={600}
           bgClassName="right-parallax"
         >
-          <div style={{ height: "450px"}} />
+          <div style={{ height: "450px" }} />
         </Parallax>
-    
+      </section>
+
+      <section className="values-section">
+        <div className="values-grid container">
+          <div>
+            <h2>My Core Values</h2>
+          </div>
+          <div>
+            <h2>Customer Care</h2>
+            <p>
+              I have walked into past wedding clients homes to photograph their
+              first born while I see wedding pictures hanging on the wall. I
+              love my clients and I believe you deserve the best care.
+            </p>
+          </div>
+          <div>
+            <h2>Amazing Quality</h2>
+            <p>
+              My heart behind every image is that you love them as much as I do.
+              My gear cleaned and ready to go for every session. I want you to
+              have keepsakes that last generations to come.
+            </p>
+          </div>
+          <div>
+            <h2>Fun</h2>
+            <p>
+              I want everyone from a session to walk away feeling like they had
+              fun! And for the gents, I love when I hear "this was way better
+              than I thought it was going to be". That is my goal every session.
+            </p>
+          </div>
+        </div>
       </section>
     </Layout>
   )

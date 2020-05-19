@@ -146,7 +146,6 @@ const Home = () => (
         <div>
             <h2 style={{color: "white", paddingBottom: "20px"}}>Ready To Work Together?</h2>
             <Link className="btn btn-bg-white">Contact Me <FaLongArrowAltRight className="arrow-dark"/></Link>
-            
         </div>
     </section>
   </main>
