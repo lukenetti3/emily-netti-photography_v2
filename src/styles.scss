@@ -45,6 +45,11 @@ a {
     margin-top: 0;
 }
 
+.my-story-col a {
+    color: $dark-green;
+    font-weight: 600;
+}
+
 .btn {
     text-decoration: none;
     font-size: 0.8rem;
@@ -56,6 +61,13 @@ a {
 .btn-bg-green {
     background: $dark-green;
     color: white;
+}
+
+.btn:hover .arrow, 
+.btn:hover .arrow-dark {
+    animation-name: moveArrow;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
 }
 
 .btn-bg-white {
@@ -75,6 +87,15 @@ a {
     color: $grey-text;
     vertical-align: -7px;
     padding-left: 1em;  
+}
+
+@keyframes moveArrow {
+    0% { transform: translateX(0px)}
+    100% { transform: translateX(15px)}
+}
+
+strong {
+    font-weight: 600;
 }
 
 // =======================================================
@@ -297,7 +318,6 @@ nav {
 
 @media (max-width: 700px) {
     .hero {
-        text-align: center;
         padding-bottom: 2rem;
     }
 }
@@ -664,28 +684,19 @@ nav {
 .qa-sub-heading {
     text-align: center;
     padding-bottom: 50px;
+    width: 90%;
 }
 
-.qa-flex {
-    display: flex;
-    justify-content: space-evenly;
+.qa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 50px;
+    width: 100%;
 }
 
 .qa-col {
-    width: 40%;
-    p {
-        padding-bottom: 50px;
-    }
-}
-
-@media (max-width: 850px) {
-    .qa-flex {
-        flex-direction: column;
-    }
-    .qa-col {
-        width: 95%;
-        margin: 0 auto;
-    }
+    width: 90%;
+    margin: 0 auto;
 }
 
 // ==============================================================
@@ -713,7 +724,7 @@ nav {
 
 @media (max-width: 850px) {
     .contact-heading {
-        padding-left: 1.5rem;
+        padding-left: 1rem;
     }
     .form-flex {
         flex-direction: column;
@@ -747,15 +758,16 @@ input[type=text] {
     font-size: 1rem;
 }
 
-input[type=radio] {
-    margin: 10px 0;
-}
-
 label {
     font-size: 0.8rem;
     font-family: Montserrat;
     text-transform: uppercase;
     margin-left: 10px;
+}
+
+.first-radio {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 textarea {
@@ -770,4 +782,40 @@ textarea {
 textarea[type=textarea] {
     font-size: 1rem;
     font-weight: Montserrat;
+}
+
+input[type=submit] {
+    background: $dark-green;
+    color: white;
+    font-family: cormorant garamond;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 98%;
+    padding: 1rem 3rem;
+}
+
+// ==============================================================
+// Gallery Page
+// ==============================================================
+.gallery-page {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+}
+
+.gallery-landscape {
+    grid-column: span 2;
+}
+
+.gallery-portrait {
+    grid-row: span 2;
+}
+
+.gallery-single {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }

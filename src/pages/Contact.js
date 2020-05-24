@@ -1,23 +1,30 @@
 import React from "react"
+import { graphql } from "gatsby"
+import { RichText } from "prismic-reactjs"
 import Layout from "../components/Layout"
-import ContactImg from "../images/ContactImg.jpg"
-import FormImg from "../images/formImg.jpg"
+import { useForm } from "react-hook-form"
 
-function Contact() {
+function Contact({data}) {
+  const { register, handleSubmit, errors } = useForm()
+  const onSubmit = data => console.log(data)
+  console.log(errors)
+
+  const contactData = data.prismic.allContact_pages.edges[0].node
+  const aboutData = data.prismic.allAbout_emilys.edges[0].node
+
   return (
     <Layout>
       <section className="container t3-pad">
         <div className="contact-heading">
           <h1>Hi friend!</h1>
           <p className="contact-sub-heading">
-            Let's get the party started. Fill out the form below or email me
-            directly - emilynettiphotography@gmail.com.
+            {contactData.contact_paragraph[0].text}
           </p>
         </div>
       </section>
 
       <section className="container">
-        <img className="contact-img" src={ContactImg} alt="bridal party" />
+        <img className="contact-img" src={contactData.contact_image.url} alt="bridal party" />
       </section>
 
       <section className="values-section">
@@ -27,27 +34,15 @@ function Contact() {
           </div>
           <div>
             <h2>Customer Care</h2>
-            <p>
-              I have walked into past wedding clients homes to photograph their
-              first born while I see wedding pictures hanging on the wall. I
-              love my clients and I believe you deserve the best care.
-            </p>
+            {RichText.render(aboutData.customer_care_paragraph)}
           </div>
           <div>
             <h2>Amazing Quality</h2>
-            <p>
-              My heart behind every image is that you love them as much as I do.
-              My gear cleaned and ready to go for every session. I want you to
-              have keepsakes that last generations to come.
-            </p>
+            {RichText.render(aboutData.amazing_quality_paragraph)}
           </div>
           <div>
             <h2>Fun</h2>
-            <p>
-              I want everyone from a session to walk away feeling like they had
-              fun! And for the gents, I love when I hear "this was way better
-              than I thought it was going to be". That is my goal every session.
-            </p>
+            {RichText.render(aboutData.fun_paragraph)}
           </div>
         </div>
       </section>
@@ -56,42 +51,100 @@ function Contact() {
         <div className="form-flex">
           <div className="form-col">
             <h2>Send A Note</h2>
-            <p>
-              I'd love to hear from you. Please send a note about your big day
-              or lifestyle session. More details the better. Let's get this
-              party started!!!
-            </p>
-            <form action="">
-              <input type="text" placeholder="Enter full name" />
+            {RichText.render(contactData.form_text)}
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                type="text"
+                placeholder="Enter your full name"
+                name="Name"
+                ref={register({ required: true, maxLength: 80 })}
+              />
+              <input
+                type="text"
+                placeholder="Enter your email"
+                name="Email"
+                ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+              />
+              <input
+                type="text"
+                placeholder="How did you hear about us?"
+                name="How did you hear"
+                ref={register({ required: true })}
+              />
+              <input
+                type="text"
+                placeholder="Wedding Date"
+                name="Date"
+                ref={register}
+              />
+              <input
+                type="text"
+                placeholder="Wedding Venue"
+                name="Venue"
+                ref={register}
+              />
+
+              <input
+                className="first-radio"
+                name="Style"
+                type="radio"
+                value="Lifestyle"
+                ref={register({ required: true })}
+              />
+              <label htmlFor="styleInput">Lifestyle</label>
               <br />
-              <input type="text" placeholder="Enter your email" />
-              <br />
-              <input type="text" placeholder="How did you hear about us?" />
-              <br />
-              <input type="text" placeholder="Wedding Date" />
-              <br />
-              <input type="text" placeholder="Wedding Venue" />
-              <br />
-              <input type="radio" name="style" />
-              <label>Lifestyle</label>
-              <br />
-              <input type="radio" name="style" />
-              <label>Wedding</label>
+              <input
+                name="Style"
+                type="radio"
+                value=" Wedding"
+                ref={register({ required: true })}
+              />
+              <label htmlFor="styleInput">Wedding</label>
               <br />
               <textarea
+                name="Message"
+                ref={register}
                 type="textarea"
-                placeholder="Your Message"
+                placeholder="Message"
                 rows="6"
-              ></textarea>
+              />
+
+              <input type="submit" />
             </form>
           </div>
           <div className="form-col">
-            <img className="form-img" src={FormImg} alt="couple kissing" />
+            <img className="form-img" src={contactData.form_image.url} alt="couple kissing" />
           </div>
         </div>
       </section>
     </Layout>
   )
 }
+
+export const query = graphql`
+{
+  prismic {
+    allContact_pages {
+      edges {
+        node {
+          contact_paragraph
+          contact_image
+          form_text
+          form_image
+        }
+      }
+    }
+    allAbout_emilys {
+      edges {
+        node {
+          customer_care_paragraph
+          amazing_quality_paragraph
+          fun_paragraph
+        }
+      }
+    }
+  }
+}
+`
 
 export default Contact

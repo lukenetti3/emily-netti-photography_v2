@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Emily Netti Photography`,
+    description: `Wedding website for Emily Netti Photography`,
+    author: `@lukenetti`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -14,11 +14,17 @@ module.exports = {
       options: {
         fonts: [
           `cormorant garamond\:300,600`,
-          `montserrat` // you can also specify font weights and styles
+          `montserrat\:400,600` // you can also specify font weights and styles
         ],
         display: 'swap'
       }
-    }
+    },
+    {
+      resolve: `gatsby-source-prismic-graphql`,
+      options: {
+        repositoryName: 'emily-netti-photography'
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

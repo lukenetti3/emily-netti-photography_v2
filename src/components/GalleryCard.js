@@ -1,5 +1,6 @@
 import React from "react"
 import { FaLongArrowAltRight } from "react-icons/fa"
+import { Link } from "gatsby"
 
 
 function GalleryCard(props) {
@@ -11,10 +12,12 @@ function GalleryCard(props) {
         <div>
             <img src={props.img} alt="" className={imgStyles}/>
             <div className={bannerStyles}>
-                <div>
-                    <h1>{props.section}</h1>
-                    <p style={{fontSize: '.8em'}}>{ props.description.toUpperCase() } <FaLongArrowAltRight className="arrow-dark" /></p>
-                </div>
+                <Link to={props.link}>
+                    <div>
+                        <h1>{props.section}</h1>
+                        <p style={{fontSize: '.8em'}}>{ props.description.toUpperCase() } <FaLongArrowAltRight className="arrow-dark" /></p>
+                    </div>
+                </Link>
             </div>
         </div>
     )

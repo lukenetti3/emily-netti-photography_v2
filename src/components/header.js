@@ -5,6 +5,11 @@ import { RiMenu5Line } from "react-icons/ri"
 function Header() {
   const [mobile, setMobile] = useState(null)
 
+  if (typeof window !== "undefined") {
+    // eslint-disable-next-line global-require
+    require("smooth-scroll")('a[href*="#"]')
+  }
+
   function dropDown() {
     return (
       <ul className="nav-list-mobile">

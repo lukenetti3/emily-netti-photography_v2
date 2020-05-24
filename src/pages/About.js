@@ -1,55 +1,51 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { Parallax } from "react-parallax"
 import { FaLongArrowAltRight } from "react-icons/fa"
-import LukeEmForeheads from "../images/lukeEmForeheads.jpg"
-import LukeEmLaughing from "../images/lukeEmLaughing.jpg"
-import LukeEmWalking from "../images/lukeEmWalking.jpg"
-import BarbAndrew from "../images/barbAndrew.jpg"
+import { RichText } from "prismic-reactjs"
+import Fade from "react-reveal/Fade"
 
-function About() {
+function About({ data }) {
+  const aboutData = data.prismic.allAbout_emilys.edges[0].node
+  // aboutData.intro_paragraph[0].text
   return (
     <Layout>
       <section className="section-padding container">
         <div className="about-heading">
-          <h2 style={{ textAlign: "center" }}>Hello Ya Beautiful Human!</h2>
-          <p>
-            Emily Netti here. I am a marketer by trade, designer by accident,
-            and passionate about adding value to businesses. I am Enneagram 3
-            and an ENFJ. I am self growth junkie with a desire to constantly be
-            improving and growing in every area of my life.
-          </p>
-          <p>
-            I married my high school sweetheart, and together we threw caution
-            to the wind and chase after big dreams. Actually, in reality, we
-            have been planning and working nights/weekends to make this dream
-            come true. We are dreamers. We are doers. And we are here to create
-            some beauty in this world.
-          </p>
+          <Fade duration={2000}>
+            <h2 style={{paddingLeft: "1rem"}}>
+              {aboutData.intro_title[0].text}
+            </h2>
+            {RichText.render(aboutData.intro_paragraph)}
+          </Fade>
           <div style={{ textAlign: "center", padding: "40px 0" }}>
-            <Link className="btn btn-bg-green">
+            <Link className="btn btn-bg-green" to="/portfolio">
               View My Work
               <FaLongArrowAltRight className="arrow" />
             </Link>
           </div>
         </div>
         <div className="about-img-grid">
-          <img
-            className="about-grid-1"
-            src={LukeEmForeheads}
-            alt="couple touching foreheads"
-          />
+          <Fade bottom>
+            <img
+              className="about-grid-1"
+              src={aboutData.about_image_1.url}
+              alt="couple touching foreheads"
+            />
+          </Fade>
           <img
             className="about-grid-2"
-            src={LukeEmLaughing}
+            src={aboutData.about_image_2.url}
             alt="couple smiling"
           />
-          <img
-            className="about-grid-3"
-            src={LukeEmWalking}
-            alt="couple walking"
-          />
+          <Fade right delay={700}>
+            <img
+              className="about-grid-3"
+              src={aboutData.about_image_3.url}
+              alt="couple walking"
+            />
+          </Fade>
         </div>
       </section>
 
@@ -65,48 +61,17 @@ function About() {
           </div>
           <div className="my-story-p">
             <div className="my-story-col">
-              <p>
-                In the midst of teachers, medical professionals, and engineers,
-                I thought about life a little different. I have been an
-                entrepreneur from day one. I was mowing lawns for the older
-                neighbor, and saved every single penny to buy a camera. I was
-                photographing and absorbing every kind of information I could
-                get my hands on. I fell in love with capturing genuine moments.
-                I loved photographing emotion.
-              </p>
-              <p>
-                Photography paid my bills in college, supported two broke young
-                married college kids, and allowed us to have a life we dreamed
-                of. This has been so much more than a job. It’s been a lifestyle
-                and a gift I get to live out every day.
-              </p>
+              {RichText.render(aboutData.story_paragraph_1)}
             </div>
             <div className="my-story-col">
-              <p>
-                I’ve realized the best experience to running a business that is
-                personally fulfilling is to be personally connect with my
-                clients. I allow people to join my story, because they are
-                welcoming me into theirs. Getting to know you is the best part
-                of my business.
-              </p>
-              <p>
-                I care about serving people on one of the most special days of
-                your life. My secret sauce to running a successful business?
-                Care about people! It’s that simple. So, let’s keep getting to
-                know each other. Continue learning more about my business by
-                checking out the{" "}
-                <Link to="/investment/" style={{ color: " #9ca7a1" }}>
-                  investment section.{" "}
-                </Link>{" "}
-                If you're coffee is still warm and you aren't sure yet - keep
-                viewing{" "}
-                <Link to="/portfolio/" style={{ color: " #9ca7a1" }}>
-                  our work.
-                </Link>
-              </p>
+              {RichText.render(aboutData.story_paragraph_2)}
             </div>
           </div>
-          <Link className="btn btn-bg-green" style={{ marginTop: "20px" }}>
+          <Link
+            className="btn btn-bg-green"
+            style={{ marginTop: "20px" }}
+            to="/portfolio"
+          >
             View My Work <FaLongArrowAltRight className="arrow" />
           </Link>
         </div>
@@ -116,7 +81,7 @@ function About() {
       <section style={{ margin: "100px 0" }}>
         <Parallax
           blur={0}
-          bgImage={BarbAndrew}
+          bgImage={aboutData.parallax.url}
           bgImageAlt="bridesmaids"
           strength={600}
           bgClassName="right-parallax"
@@ -132,32 +97,44 @@ function About() {
           </div>
           <div>
             <h2>Customer Care</h2>
-            <p>
-              I have walked into past wedding clients homes to photograph their
-              first born while I see wedding pictures hanging on the wall. I
-              love my clients and I believe you deserve the best care.
-            </p>
+            <p>{aboutData.customer_care_paragraph[0].text}</p>
           </div>
           <div>
             <h2>Amazing Quality</h2>
-            <p>
-              My heart behind every image is that you love them as much as I do.
-              My gear cleaned and ready to go for every session. I want you to
-              have keepsakes that last generations to come.
-            </p>
+            <p>{aboutData.amazing_quality_paragraph[0].text}</p>
           </div>
           <div>
             <h2>Fun</h2>
-            <p>
-              I want everyone from a session to walk away feeling like they had
-              fun! And for the gents, I love when I hear "this was way better
-              than I thought it was going to be". That is my goal every session.
-            </p>
+            <p>{aboutData.fun_paragraph[0].text}</p>
           </div>
         </div>
       </section>
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    prismic {
+      allAbout_emilys {
+        edges {
+          node {
+            intro_title
+            intro_paragraph
+            about_image_1
+            about_image_2
+            about_image_3
+            story_paragraph_1
+            story_paragraph_2
+            parallax
+            customer_care_paragraph
+            amazing_quality_paragraph
+            fun_paragraph
+          }
+        }
+      }
+    }
+  }
+`
 
 export default About
