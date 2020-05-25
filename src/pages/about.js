@@ -11,10 +11,10 @@ function About({ data }) {
   // aboutData.intro_paragraph[0].text
   return (
     <Layout>
-      <section className="section-padding container">
+      <section className="container t3-pad">
         <div className="about-heading">
           <Fade duration={2000}>
-            <h2 style={{ paddingLeft: "1rem" }}>
+            <h2 className="about-title">
               {aboutData.intro_title[0].text}
             </h2>
             {RichText.render(aboutData.intro_paragraph)}

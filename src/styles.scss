@@ -121,10 +121,6 @@ strong {
     padding: 3rem;
 }
 
-.section-padding {
-    padding-top: 6rem;
-}
-
 @media (max-width: 1100px) {
     .t2-pad {
         padding-top: 1rem;
@@ -491,6 +487,9 @@ nav {
 @media (max-width: 600px) {
     .about-heading p {
         padding: 0 1rem;
+    }
+    .about-title {
+        padding-left: 1rem;
     }
 }
 
