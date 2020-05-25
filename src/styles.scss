@@ -592,12 +592,18 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-auto-rows: auto;
-    align-items: center;
+    align-items: flex-start;
     grid-gap: 40px;
 }
 
 .values-grid h2 {
     color: white;
+}
+
+.special-hr {
+    width: 50%;
+    margin: 0;
+    border-top: 2px solid white;
 }
 
 // ==============================================================

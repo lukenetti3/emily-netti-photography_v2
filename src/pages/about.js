@@ -14,7 +14,7 @@ function About({ data }) {
       <section className="section-padding container">
         <div className="about-heading">
           <Fade duration={2000}>
-            <h2 style={{paddingLeft: "1rem"}}>
+            <h2 style={{ paddingLeft: "1rem" }}>
               {aboutData.intro_title[0].text}
             </h2>
             {RichText.render(aboutData.intro_paragraph)}
@@ -93,7 +93,8 @@ function About({ data }) {
       <section className="values-section">
         <div className="values-grid container">
           <div>
-            <h2>My Core Values</h2>
+            <h2 style={{ marginBottom: "10px" }}>My Core Values</h2>
+            <hr className="special-hr" />
           </div>
           <div>
             <h2>Customer Care</h2>

@@ -25,7 +25,8 @@ function Contact({data}) {
       <section className="values-section">
         <div className="values-grid container">
           <div>
-            <h2>My Core Values</h2>
+            <h2 style={{marginBottom: "10px"}}>My Core Values</h2>
+            <hr className="special-hr"/>
           </div>
           <div>
             <h2>Customer Care</h2>
