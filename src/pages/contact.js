@@ -110,7 +110,7 @@ function Contact({data}) {
                 rows="6"
               />
 
-              <input type="submit" />
+              <button type="submit" className="submit-btn">Send</button>
             </form>
           </div>
           <div className="form-col">
