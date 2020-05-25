@@ -52,37 +52,34 @@ function Contact({data}) {
           <div className="form-col">
             <h2>Send A Note</h2>
             {RichText.render(contactData.form_text)}
-            <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-            <input type="hidden" name="bot-field" />
+            <form name="Contact Form" method="POST" data-netlify="true" action="/thankyou">
+            <input type="hidden" name="form-name" value="Contact Form"/>
               <input
                 type="text"
                 placeholder="Enter your full name"
                 name="Name"
-                ref={register({ required: true, maxLength: 80 })}
+                required
               />
               <input
                 type="text"
                 placeholder="Enter your email"
                 name="Email"
-                ref={register({ required: true, pattern: /^\S+@\S+$/i })}
+                required
               />
               <input
                 type="text"
                 placeholder="How did you hear about us?"
                 name="How did you hear"
-                ref={register({ required: true })}
               />
               <input
                 type="text"
                 placeholder="Wedding Date"
                 name="Date"
-                ref={register}
               />
               <input
                 type="text"
                 placeholder="Wedding Venue"
                 name="Venue"
-                ref={register}
               />
 
               <input
@@ -90,7 +87,6 @@ function Contact({data}) {
                 name="Style"
                 type="radio"
                 value="Lifestyle"
-                ref={register({ required: true })}
               />
               <label htmlFor="styleInput">Lifestyle</label>
               <br />
@@ -98,16 +94,15 @@ function Contact({data}) {
                 name="Style"
                 type="radio"
                 value=" Wedding"
-                ref={register({ required: true })}
               />
               <label htmlFor="styleInput">Wedding</label>
               <br />
               <textarea
                 name="Message"
-                ref={register}
                 type="textarea"
                 placeholder="Message"
                 rows="6"
+                required
               />
 
               <button type="submit" className="submit-btn">Send</button>
