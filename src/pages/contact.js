@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
 import Layout from "../components/Layout"
-import { useForm } from "react-hook-form"
 
 function Contact({data}) {
   const contactData = data.prismic.allContact_pages.edges[0].node
