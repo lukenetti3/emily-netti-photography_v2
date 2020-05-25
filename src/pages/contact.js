@@ -5,10 +5,6 @@ import Layout from "../components/Layout"
 import { useForm } from "react-hook-form"
 
 function Contact({data}) {
-  const { register, handleSubmit, errors } = useForm()
-  const onSubmit = data => console.log(data)
-  console.log(errors)
-
   const contactData = data.prismic.allContact_pages.edges[0].node
   const aboutData = data.prismic.allAbout_emilys.edges[0].node
 
