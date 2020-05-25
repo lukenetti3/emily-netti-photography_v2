@@ -121,7 +121,7 @@ function Investment({ data }) {
       </section>
 
       <section className="container t3-pad">
-        <h2 className="qa-sub-heading">You've Got Questions I Have Answers</h2>
+        <h2 className="qa-sub-heading">You've Got Questions, I Have Answers</h2>
         <div className="qa-grid">
           {console.log(investmentData.faq)}
           {investmentData.faq.map(item => {
