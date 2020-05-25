@@ -821,6 +821,19 @@ textarea[type=textarea] {
     grid-row: span 2;
 }
 
+@media (max-width: 650px) {
+    .gallery-page {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+    .gallery-landscape {
+        grid-column: span 1;
+    }
+    
+    .gallery-portrait {
+        grid-column: span 1;
+    }
+}
+
 .gallery-single {
     height: 100%;
     width: 100%;
