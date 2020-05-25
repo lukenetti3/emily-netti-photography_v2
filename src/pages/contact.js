@@ -52,7 +52,7 @@ function Contact({data}) {
           <div className="form-col">
             <h2>Send A Note</h2>
             {RichText.render(contactData.form_text)}
-            <form onSubmit={handleSubmit(onSubmit)} name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+            <form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
             <input type="hidden" name="bot-field" />
               <input
                 type="text"
