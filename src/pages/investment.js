@@ -86,11 +86,11 @@ function Investment({ data }) {
             <h2>My Process</h2>
             <p>{RichText.render(investmentData.wedding_process_paragraph)}</p>
             <Link
-              to="/portfolio"
+              to="/contact"
               className="btn btn-bg-green"
               style={{ textAlign: "center" }}
             >
-              Portfolio
+              Book Now
             </Link>
           </div>
           <div className="process-col-2 process-facts">
@@ -165,11 +165,11 @@ function Investment({ data }) {
             <h2>My Process</h2>
             {RichText.render(investmentData.lifestyle_process_paragraph)}
             <Link
-              to="/portfolio"
+              to="/contact"
               className="btn btn-bg-green"
               style={{ textAlign: "center" }}
             >
-              Portfolio
+              Book Now
             </Link>
           </div>
           <div className="process-col-2 process-facts">

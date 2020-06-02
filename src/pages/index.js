@@ -153,7 +153,7 @@ function Index({ data }) {
               Ready To Work Together?
             </h2>
             <Link to="/contact/" className="btn btn-bg-white">
-              Contact Me <FaLongArrowAltRight className="arrow-dark" />
+              Hire Me <FaLongArrowAltRight className="arrow-dark" />
             </Link>
           </div>
         </section>

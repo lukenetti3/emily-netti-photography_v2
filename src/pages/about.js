@@ -70,9 +70,9 @@ function About({ data }) {
           <Link
             className="btn btn-bg-green"
             style={{ marginTop: "20px" }}
-            to="/portfolio"
+            to="/contact"
           >
-            View My Work <FaLongArrowAltRight className="arrow" />
+            Book Today <FaLongArrowAltRight className="arrow" />
           </Link>
         </div>
       </section>
