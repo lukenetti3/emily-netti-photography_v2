@@ -10,7 +10,10 @@ function Investment({ data }) {
   const investmentData = data.prismic.allInvestments.edges[0].node
 
   return (
-    <Layout>
+    <Layout
+      pageTitle="Investment"
+      pageDescription="What are you looking for? See what I offer and my process below. Whether it be a wedding experience or a lifestyle experience I can make your day memorable."
+    >
       <section className="t3-pad container">
         <div className="investment-banner">
           <h1 className="investment-title">What Are You Looking For?</h1>

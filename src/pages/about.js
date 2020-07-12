@@ -10,7 +10,7 @@ function About({ data }) {
   const aboutData = data.prismic.allAbout_emilys.edges[0].node
   // aboutData.intro_paragraph[0].text
   return (
-    <Layout>
+    <Layout pageTitle="About" pageDescription="Hello Ya Beautiful Human! Emily Netti here. I am a marketer by trade, designer by accident, and passionate about adding value to businesses. ">
       <section className="container t3-pad">
         <div className="about-heading">
           <Fade duration={2000}>

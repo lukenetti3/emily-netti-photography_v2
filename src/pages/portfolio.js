@@ -8,7 +8,7 @@ const Portfolio = ({data}) => {
   const portfolioData = data.prismic.allPortfolio_pages.edges[0].node
   // portfolioData.weddings_image.url
   return (
-    <Layout>
+    <Layout pageTitle="Portfolio" pageDescription="Weddings, engagements, or lifestyle. I do it all. Explore either of these sections to learn more.">
       <section style={{ marginTop: "5rem" }}>
         <div className="portfolio-row">
           <div className="p-col">

@@ -12,7 +12,7 @@ function Index({ data }) {
   // homeData.hero_paragraph[0].text
   // homeData.hero_image.url
   return (
-    <Layout>
+    <Layout pageTitle="Home" pageDescription="Emily Netti Photography. I'm a wedding & lifestyle photographer based in beautiful Upstate NY.">
       <main>
         <section className="container first-section">
           <div className="flex-1">

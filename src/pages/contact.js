@@ -8,7 +8,7 @@ function Contact({data}) {
   const aboutData = data.prismic.allAbout_emilys.edges[0].node
 
   return (
-    <Layout>
+    <Layout pageTitle="Contact" pageDescription="Hi friend. Let's get the party started. Fill out the form below or email me directly.">
       <section className="container t3-pad">
         <div className="contact-heading">
           <h1>Hi friend!</h1>
