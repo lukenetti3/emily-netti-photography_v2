@@ -3,7 +3,8 @@ module.exports = {
     title: `Emily Netti Photography`,
     description: `Wedding website for Emily Netti Photography`,
     author: `@lukenetti`,
-    image: `/images/EN.png`
+    image: `/images/EN.png`,
+    siteUrl: `https://emilynettiphotography.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,6 +12,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
